@@ -1,0 +1,21 @@
+---
+import type { Document } from 'astro-spaceship/types';
+
+import { buildTree } from './utils/buildTree';
+import Leaf from './Leaf.astro';
+
+export type Props = {
+  docs: Document[];
+  expanded?: boolean;
+};
+
+const { docs, expanded } = Astro.props;
+
+const tree = buildTree(docs);
+---
+
+<ul class="tree flex flex-col gap-0.5">
+  {tree.map((node) => (
+    <Leaf expanded={expanded} node={node} />
+  ))}
+</ul>
