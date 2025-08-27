@@ -1,4 +1,0 @@
-
-- [[Galaxy]]
-- [[Monolith]]
-- [[Journey]]

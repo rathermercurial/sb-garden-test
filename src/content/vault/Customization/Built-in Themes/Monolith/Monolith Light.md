@@ -1,3 +1,0 @@
----
----
-Monolight Light Theme
