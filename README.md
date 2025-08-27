@@ -78,11 +78,70 @@ degit aitorllj93/astro-theme-spaceship
 
 ---
 
+## 🔧 Link Processing & Known Issues
+
+### Internal Link Handling
+
+This project implements a comprehensive link processing system to handle Obsidian-style links and convert them for web use:
+
+#### ✅ **Resolved Issues**
+1. **Markdown Content Links**: Links in markdown content like `[blockchain](tags/blockchain.md)` are properly converted to `/tags/blockchain`
+2. **Relative Path Conversion**: Links starting with `tags/`, `artifacts/`, `links/`, `notes/`, or `attachments/` are converted to absolute paths
+3. **Extension Removal**: `.md` extensions are stripped from internal links
+4. **Index Link Flattening**: Links like `/path/index` are converted to `/path`
+
+#### ⚠️ **Known Edge Cases (Windows)**
+
+**Frontmatter Tag Links**: A Windows-specific issue exists where frontmatter tags generate URLs with escaped backslashes:
+
+```yaml
+# In frontmatter:
+tags:
+  - blockchain
+  - governance
+```
+
+**Expected behavior**: Links to `/tags/blockchain`, `/tags/governance`  
+**Actual behavior**: Links to `/\tags/blockchain`, `/\tags/governance` (note the backslash)
+
+**Root Cause**: The `astro-loader-obsidian` package has a Windows path handling bug in its URL generation functions (`toUrl`/`toSlug` in `obsidianId.ts`). The loader incorrectly processes Windows file paths when generating permalinks for content loaded from the vault.
+
+**Impact**: ~13 frontmatter tag links per page show incorrect escaping, while all other links work correctly.
+
+**Workaround Status**: This requires forking and patching the obsidian-loader library. For production use, the recommended solution is to:
+1. Fork `astro-loader-obsidian`
+2. Fix the Windows path normalization in the URL generation functions  
+3. Replace the dependency with the fixed fork
+
+#### 🛠 **Implementation Details**
+
+**Remark Plugin**: `src/lib/markdown/remark-fix-obsidian-links.ts`
+- Processes markdown AST before HTML rendering
+- Converts relative vault paths to absolute URLs
+- Works at the correct pipeline stage (markdown → HTML)
+
+**Configuration**: `astro.config.ts`
+```typescript
+markdown: {
+  remarkPlugins: [
+    remarkFixObsidianLinks,
+  ],
+}
+```
+
+**Processing Pipeline**:
+1. **Obsidian Loader**: Processes `.md` files, removes extensions
+2. **Remark Plugin**: Converts relative paths to absolute paths  
+3. **Theme**: Renders final HTML with correct links
+
+---
+
 ## 🧠 Notes
 
 - Internal links work only for files within the vault structure.
 - Uses YAML frontmatter for publishing logic.
 - Markdown rendering includes code highlighting, math support (optional), and responsive design out-of-the-box.
+- **Windows Users**: See link processing section above for known frontmatter tag link issues.
 
 ---
 

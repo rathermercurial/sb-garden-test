@@ -19,4 +19,8 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-Icon
+Icon
+
+# Claude Code specific directories
+.claude/
+.temp/
