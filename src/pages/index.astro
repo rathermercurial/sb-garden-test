@@ -1,6 +1,19 @@
 ---
-import "@/styles/landing.css";
+import { getStaticPathsFactory, type Props } from "astro-spaceship/components/Article/utils/get-static-paths.ts";
+import Page from 'astro-spaceship/components/Article/Page.astro';
 
-import LandingPage from "@/components/LandingPage.astro";
+import '@/styles/global.css';
+import config from '@/config';
+
+// Get the index page from the vault
+const paths = await getStaticPathsFactory({ config })();
+const indexPath = paths.find(p => p.params.slug === undefined || (Array.isArray(p.params.slug) && p.params.slug.join('/') === 'index') || p.params.slug === 'index');
+
+if (!indexPath) {
+  throw new Error('Could not find index page in vault');
+}
+
+const props = indexPath.props;
 ---
-<LandingPage />
+
+<Page {...props} />
