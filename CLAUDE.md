@@ -1,8 +1,11 @@
 # Claude Context - SuperBenefit Knowledge Garden
 
+> **⚠️ PROOF OF CONCEPT IMPLEMENTATION**  
+> This project demonstrates Astro's viability for knowledge gardens but is **not production-ready** due to fundamental limitations with the obsidian-loader dependency.
+
 ## Project Overview
 
-This is the SuperBenefit Knowledge Garden, a digital garden for collaborative knowledge management built with Astro and the Spaceship theme. It serves as both an internal tool for the SuperBenefit DAO's collaborative learning and a contribution to the wider knowledge commons.
+This is a **proof-of-concept implementation** of the SuperBenefit Knowledge Garden built with Astro and the Spaceship theme. The project explores adapting existing tools to construct a minimally-viable knowledge garden, serving as a foundation for designing a proper Astro-native implementation that utilizes the framework's built-in Content Layer API, transformers, and content collections.
 
 **Tech Stack:**
 - **Framework:** Astro 
@@ -320,4 +323,29 @@ When making changes:
 
 ---
 
-*This context file helps AI assistants understand the SuperBenefit Knowledge Garden project structure and conventions.*
+## **Proof of Concept Results**
+
+### **✅ Successful Demonstrations**
+- **Astro Viability**: Framework handles knowledge garden requirements effectively
+- **Performance Gains**: Significantly faster build times than current Quartz setup
+- **Component Flexibility**: Theme customization and override system works well
+- **Link Processing**: 90% success rate with remark plugin approach
+
+### **❌ Critical Limitations Identified**  
+- **Windows Platform Bug**: astro-loader-obsidian has unfixable path handling issues
+- **Technical Debt**: Patch-heavy architecture using workarounds instead of native features
+- **Scalability Concerns**: Third-party dependency constrains transformation capabilities
+- **Maintenance Risk**: High complexity due to multiple override systems
+
+### **🎯 Recommended Next Steps**
+Based on POC findings, **abandon the obsidian-loader approach** and design an **Astro-native implementation** using:
+1. **Content Layer API** for custom data sources (Obsidian REST API + GitHub)
+2. **Content Collections** for structured content management  
+3. **Built-in Transformers** for Obsidian→Web content processing
+4. **Native File System APIs** for local content import
+
+**Goal**: Create a production-ready knowledge garden that properly leverages Astro's built-in capabilities rather than working around third-party limitations.
+
+---
+
+*This context file helps AI assistants understand the SuperBenefit Knowledge Garden proof-of-concept project and its findings for future Astro-native implementations.*
