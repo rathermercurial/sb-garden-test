@@ -80,4 +80,3 @@ The framework is particularly valuable for communities that need to adapt their 
 
 ![Modular Politics Discussion](https://www.youtube.com/watch?v=981FhtbX8vU)
 
-![[attachments/modular-politics.pdf]]

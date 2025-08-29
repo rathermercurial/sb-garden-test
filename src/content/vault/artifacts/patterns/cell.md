@@ -75,7 +75,6 @@ They are designed to be flexible enough to allow for many different ways of comb
 	- Progress - project management, outputs, execution towards goals [progress](tags/progress.md)
 
 
-![[attachments/cell diagram.png]]
     
 **Scale**
 - Cells operate internally at [collaboration scale](artifacts/guides/dao-primitives-framework/group-scale/collaboration-scale.md), within their core team. This means that they are a team of fewer than 10 people who communicate regularly and in a high-bandwidth way to manage something complex. 
@@ -102,7 +101,6 @@ Generally Cells have 3 different ways that they can operationalize their purpose
 
 Cells often use [roles](tags/roles.md) and [tasks](tags/tasks.md) as basic patterns for managing both their internal collaboration and external coordination activities. 
 
-![[attachments/cell-structure.png]]
 
 ###  Cell Formation Patterns
 

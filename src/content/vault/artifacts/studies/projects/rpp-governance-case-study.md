@@ -281,7 +281,6 @@ There are of course improvements to make for future versions of this governance 
 
 Here is an outline of how the governance structure of the RPP. 
 
-![[attachments/Pasted image 20250410195527.png]]
 
 
 ### DAO Primitives Framework Elements Used

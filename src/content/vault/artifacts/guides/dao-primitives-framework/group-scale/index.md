@@ -20,7 +20,6 @@ Human systems function differently at different scales. Understanding these diff
 
 
 !group-scale (2).png)
-![[attachments/group-scale.png]]
 When creating decentralized [networks](tags/networks.md) of autonomous teams, it is important to design for the different group scales that will occur. This way, different [groups](tags/groups.md) across a [network](tags/networks.md) can operate effectively as separate entities, and also [coordinate](tags/coordination.md) together effectively to create a collectively intelligent whole.
 
 ---
