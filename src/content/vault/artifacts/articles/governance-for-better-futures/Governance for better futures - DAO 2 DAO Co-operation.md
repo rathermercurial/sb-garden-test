@@ -7,7 +7,6 @@ tags:
   - daos
 publish: "true"
 type: link
-# banner: "![[attachments/...]]" - Removed attachment reference
 banner_y: 0.468
 ---
 

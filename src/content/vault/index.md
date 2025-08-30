@@ -3,7 +3,6 @@ nav-weight: 1
 title: SuperBenefit Knowledge Garden
 description: A digital garden for knowledge curated by the SuperBenefit community
 publish: true
-# # banner: "![[attachments/...]]" - Removed attachment reference - Removed attachment reference
 # banner_x: 0.48115 - Removed with banner
 ---
 

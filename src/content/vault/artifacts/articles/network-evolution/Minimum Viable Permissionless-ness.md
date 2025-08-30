@@ -9,7 +9,6 @@ tags:
   - governance
 publish: "true"
 type: link
-# banner: "![[attachments/...]]" - Removed attachment reference
 ---
 
 ## How permissionless access in DAOs creates decentralized collective intelligence

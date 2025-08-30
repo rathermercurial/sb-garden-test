@@ -2,7 +2,6 @@
 title: The Reimagining Power Playbook
 description: Insights from practical experimentation with decentralized coordination in a non-profit and social impact context
 author: Reimagining Power
-# # banner: "![[attachments/...]]" - Removed attachment reference - Removed attachment reference
 banner_y: 0.224
 publish: true
 type: playbook

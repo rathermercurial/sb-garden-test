@@ -8,7 +8,6 @@ tags:
   - governance
 publish: "true"
 type: link
-# banner: "![[attachments/...]]" - Removed attachment reference
 banner_y: 0.196
 ---
 
