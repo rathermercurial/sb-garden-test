@@ -7,7 +7,7 @@ tags:
   - daos
 publish: "true"
 type: link
-banner: "![[attachments/zenGd_02dGdVDJ581M_9A.jpeg]]"
+# banner: "![[attachments/...]]" - Removed attachment reference
 banner_y: 0.468
 ---
 

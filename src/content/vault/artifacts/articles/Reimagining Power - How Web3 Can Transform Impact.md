@@ -4,7 +4,7 @@ description: Exploring how emerging web3 technologies can be leveraged to redist
 tags:
   - impact
 publish: true
-banner: "![[attachments/rpp-article-cover.webp]]"
+# # banner: "![[attachments/...]]" - Removed attachment reference - Removed attachment reference
 ---
 
 In the face of multiple crises, systemic inequities, and entrenched power imbalances, philanthropy stands at a pivotal moment. Achieving transformational change requires bold shifts in how we understand and exercise tags/power.md, mobilize tags/resources.md, and distribute value. It is no longer enough to acknowledge the power and privilege inherent in philanthropy; we must fundamentally alter the structures and tags/systems.md that perpetuate these dynamics.

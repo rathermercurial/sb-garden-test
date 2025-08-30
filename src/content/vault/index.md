@@ -3,8 +3,8 @@ nav-weight: 1
 title: SuperBenefit Knowledge Garden
 description: A digital garden for knowledge curated by the SuperBenefit community
 publish: true
-banner: "![[attachments/playbook-temp-image.webp]]"
-banner_x: 0.48115
+# # banner: "![[attachments/...]]" - Removed attachment reference - Removed attachment reference
+# banner_x: 0.48115 - Removed with banner
 ---
 
 Welcome to SuperBenefit's knowledge garden - a living collection of our community's shared understanding, research, and insights. This space serves as both an internal tool for our DAO's collaborative learning and a contribution to the wider knowledge commons.
