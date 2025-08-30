@@ -13,7 +13,7 @@ export default {
     loader: ObsidianMdLoader({
       author: config.author,
       base: 'src/content/vault',
-      url: 'vault',
+      url: '',
       assetsPattern: '**/*.{svg,png,jpg,jpeg,avif,webp,gif,tiff,ico,pdf}',
       wikilinkFields: ['relateds']
     }),
