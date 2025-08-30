@@ -9,8 +9,8 @@ This is a **proof-of-concept implementation** of the SuperBenefit Knowledge Gard
 
 ## ✨ Features
 
-- 🔗 **Obsidian Link and Image Resolution**  
-  Seamlessly supports `[[wiki-links]]` and embeds like `![[image.png]]`, just like in Obsidian. No need to manually convert links or media.
+- 🔗 **Obsidian Wiki-Link Resolution**  
+  Supports `[[wiki-links]]` for internal navigation between notes. ⚠️ **Image embeds removed** due to Windows path resolution bugs.
 
 - 📝 **Frontmatter Metadata for Publishing**  
   Control visibility, titles, descriptions, tags, and more with simple frontmatter options. Choose what gets published and how it appears.
@@ -24,10 +24,10 @@ This is a **proof-of-concept implementation** of the SuperBenefit Knowledge Gard
 - 🔁 **Links and Backlinks**  
   Display outgoing links and backlinks at the bottom of each note, making your web of notes as interconnected as your vault.
 
-- 🔌 **Plugins**
-  - [Banners/Covers](https://github.com/jparkerweb/pixel-banner)
+- 🔌 **Plugins** *(Limited Support)*
+  - ~~[Banners/Covers](https://github.com/jparkerweb/pixel-banner)~~ *Removed due to path issues*
   - [Spoilers](https://github.com/jacobtread/obsidian-spoilers)
-  - [Timeline](https://github.com/George-debug/obsidian-timeline)
+  - [Timeline](https://github.com/George-debug/obsidian-timeline) 
   - [Sorting](https://github.com/shu307/obsidian-nav-weight)
 
 ---
@@ -173,22 +173,47 @@ export const tags = defineCollection({
 
 ## 🧠 **Current Implementation Notes**
 
-- **Link Success Rate**: ~90% of internal links function correctly
-- **Platform Issues**: Windows users experience frontmatter tag link failures  
+### **Build Issues Resolved (August 2025)**
+
+During troubleshooting and optimization, several critical build issues were identified and resolved:
+
+#### **🔧 Fixes Applied**
+- **Duplicate File Cleanup**: Removed 22 duplicate attachment files with " 1." pattern that were consuming storage
+- **ObsidianMdLoader Configuration**: Updated loader with proper `url` and `assetsPattern` parameters based on official documentation  
+- **Attachment Reference Removal**: Completely removed all internal attachment links (images, PDFs) to eliminate Windows path resolution errors
+- **Wrangler Configuration**: Added proper Cloudflare Pages deployment configuration pointing to `./dist` directory
+
+#### **🚫 Windows Path Resolution Issues**
+The core issue remains **unfixable** within the current architecture:
+- **Root Cause**: `astro-loader-obsidian` generates malformed Windows paths like `..\..\attachments\image.png` 
+- **Impact**: Build failures when processing Obsidian image embeds `![[attachments/filename]]`
+- **Workaround Applied**: Complete removal of all attachment references from vault content
+- **Result**: Clean builds achieved, but at the cost of losing visual content
+
+#### **📊 Current Status**
+- **Build Success Rate**: 100% (after attachment removal)
+- **Link Success Rate**: ~90% of internal links function correctly  
+- **Platform Issues**: Windows path bugs worked around but not solved
+- **Content Completeness**: Reduced due to attachment removal
 - **Architecture**: Patch-based solution using remark plugins and component overrides
 - **Performance**: Significantly faster than Quartz for static generation
-- **Maintenance**: High technical debt due to workaround-heavy approach
+- **Maintenance**: Very high technical debt due to workaround-heavy approach
+
+#### **🎯 Key Takeaway**
+The fixes demonstrate that **Astro itself works excellently** for knowledge gardens. The problems stem entirely from the `astro-loader-obsidian` dependency's Windows compatibility issues. This reinforces the recommendation to build an Astro-native implementation.
 
 ## 🔗 **Comparison to Quartz**
 
-| Aspect | Quartz (Current) | Spaceship POC | Astro-Native (Proposed) |
-|--------|------------------|---------------|-------------------------|
+| Aspect | Quartz (Current) | Spaceship POC (Fixed) | Astro-Native (Proposed) |
+|--------|------------------|----------------------|-------------------------|
 | **Build Speed** | Slow | Fast | Very Fast |
 | **Link Reliability** | High | ~90% | 100% (target) |
+| **Image Support** | Full | None (removed) | Full (target) |
 | **Customization** | Limited | Moderate | Full Control |
 | **Maintenance** | High | Very High | Low |
 | **Scalability** | Poor | Poor | Excellent |
-| **Cross-platform** | Good | Broken on Windows | Excellent (target) |
+| **Cross-platform** | Good | Workarounds Applied | Excellent (target) |
+| **Content Completeness** | 100% | ~85% (no images) | 100% (target) |
 
 ## 🎯 **Recommendation**
 
