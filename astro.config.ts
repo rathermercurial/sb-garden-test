@@ -12,7 +12,7 @@ export default defineConfig({
       alias: [
         {
           find: /^.*\/Tree\/utils\/buildTree$/,
-          replacement: 'F:/projects/sb-spaceship/src/components/Tree/utils/buildTree.js'
+          replacement: './src/components/Tree/utils/buildTree.js'
         }
       ]
     }
