@@ -1,10 +1,10 @@
 {
-  "author": "Spaceship CO",
+  "author": "rathermercurial.eth",
   "base": "/",
   "defaultLocale": "en",
-  "description": "Ship your Second Brain into the Cyber-Space",
-  "site": "https://aitorllj93.github.io",
-  "title": "Spaceship",
+  "description": "this an experimental Astro version of the superbenefit knowledge garden",
+  "site": "https://sbknowledge.test.rathermercurial.xyz",
+  "title": "SB knowledge garden test",
   "displayOptions": {
     "showAuthor": false,
     "showPublishDate": false

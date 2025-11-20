@@ -12,6 +12,7 @@
     "sync": "astro sync"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.12.8",
     "astro-loader-obsidian": "^0.7.0",
     "astro-spaceship": "^0.7.0",
